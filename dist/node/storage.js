@@ -436,7 +436,7 @@ class Storage extends EventEmitter {
             })
           })
 
-          Promise.all(_.map(newBlock.tx).map((tx) => this.dataAccess.saveTransaction(tx)))
+          Promise.all(_.map(newBlock.tx).map((tx) => {tx.time = newBlock.time; this.dataAccess.saveTransaction(tx);}))
             .then((res) => {
               // Because we asynchronously sync the blockchain,
               // we need to keep track of the blocks that have been stored

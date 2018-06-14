@@ -580,6 +580,7 @@ class MongodbStorage extends EventEmitter {
       size: Number,
       type: { type: 'String', index: true },
       version: Number,
+      time: Number,
       attributes: [],
       vin: [],
       vout: [],
